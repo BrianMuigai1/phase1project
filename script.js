@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("save").value = remainingToSave > 0 ? remainingToSave : 0;
   
       if (typeof myChart !== "undefined") {
-        myChart.destroy(); // Clear previous chart to avoid duplication
+        myChart.destroy(); 
       }
       myChart = new Chart(document.getElementById("Piechart"), {
         type: "pie",
@@ -60,26 +60,36 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("totalSalary").addEventListener("input", updateChart);
   
     updateChart();
-  });
   
-  fetch("https://open.er-api.com/v6/latest/USD")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const dataList = document.getElementById("data-list");
-      Object.keys(data.rates).forEach((currency) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${currency}: ${data.rates[currency]}`;
-        dataList.appendChild(listItem);
+    const apiUrl = "https://open.er-api.com/v6/latest/USD";
+    const queryParams = {
+      param1: "value1",
+      param2: "value2",
+      apiKey: apiKey,
+    };
+  
+    const url = new URL(apiUrl);
+    url.search = new URLSearchParams(queryParams).toString();
+  
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const dataList = document.getElementById("data-list");
+        Object.keys(data.rates).forEach((currency) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${currency}: ${data.rates[currency]}`;
+          dataList.appendChild(listItem);
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-    });
+  });
   
   function convertCurrency() {
     const rates = {
