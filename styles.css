@@ -32,49 +32,15 @@
   left: 0;
 }
 
-body{
+body {
   background-color: dimgrey;
   text-align: center;
 }
 
-#Services ol{
+#Services ol {
   list-style-type: none;
 }
 
-#ContactUs ul{
+#ContactUs ul {
   list-style-type: none;
 }
-.pie-chart {
-  position: relative;
-  width: 80%;
-  height: 80vh;
-  max-width: 600px;
-  max-height: 400px;
-  margin: auto;
-  border-radius: 50%;
-  background-color: #f2f2f2;
-}
-
-.slice {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  clip: polygon(50% 50%, 100% 100%, 0 100%);
-  border-radius: 50%;
-}
-#slice1 {
-  background-color: #ff7f0e;
-}
-
-#slice2 {
-  background-color: #1f77b4;
-}
-
-#slice3 {
-  background-color: #2ca02c;
-}
-
-
-
-
-

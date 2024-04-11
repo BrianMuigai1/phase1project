@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expenses Manager</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="converter.css">
 </head>
 <body>
   <header>
     <div class="Header">
       <div class="HeaderPicture">
-        <img src="photos/money-4068357_1280.png" alt="Piggy bank being used to save money" />
+        <img src="photos/money-4068357_1280.png" alt="Piggy bank being used to save money">
       </div>
       <div class="HeaderText">
         <h2>Welcome to MyExpenses, Customer!</h2>
@@ -36,14 +37,15 @@
       <h3>Services</h3>
       <ol>
         <li>
-          <i><a href="expenses.html">Calculating MyExpenses</a></i>
+          <i>Calculating MyExpenses</i>
           <p>Calculate your monthly expenses and track how you are spending your money.</p>
         </li>
         <li>
-          <i><a href="converter.html">Currency Converter</a></i>
+          <i>Currency Converter</i>
           <p>Calculate your currency in Kshs. from whatever currency you're paid in to make your life seamless</p>
         </li>
       </ol>
+      
     </section>
     <section id="AboutUs">
       <h3>About Us</h3>
@@ -58,11 +60,57 @@
       </ul>
     </section>
   </main>
-  
+
+  <label for="amount">Amount:</label>
+  <input type="number" id="amount" min="0">
+  <label for="from">From Currency:</label>
+  <select id="from">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="KES">KES</option>
+  </select>
+  <label for="to">To Currency:</label>
+  <select id="to">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="KES">KES</option> 
+  </select>
+  <button onclick="convertCurrency()">Convert</button>
+  <p id="result"></p>
+
+  <div class="Pie-chart">
+    <h1>MyExpenses</h1>
+    <div>
+      <canvas id="Piechart" width="400" height="400"></canvas>
+    </div>
+  </div>
+  <div>
+    <label for="tax">Tax:</label>
+    <input type="number" id="tax" >
+    <label for="transport">Transport:</label>
+    <input type="number" id="transport" >
+    <label for="entertainment">Entertainment:</label>
+    <input type="number" id="entertainment" >
+    <label for="rent">Rent & other utilities:</label>
+    <input type="number" id="rent" >
+    <label for="food">Food:</label>
+    <input type="number" id="food" >
+    <label for="save">Save:</label> 
+    <input type="number" id="save" > 
+    <label for="totalSalary">Total Salary:</label>
+    <input type="number" id="totalSalary" >
+    <button onclick="updateChart()">Update Chart</button>
+  </div>
+
   <footer>
     <p>MyExpenses: Helping you save. My webpage 2024. All rights reserved.</p>
   </footer>
   
   <script src="script.js"></script>
+  <script src="converter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="expenses.js"></script>
 </body>
 </html>
