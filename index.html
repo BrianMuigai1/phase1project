@@ -76,30 +76,36 @@
               paid in to make your life seamless
             </p>
           </li>
+          <div>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" min="0" />
+            <label for="from">From Currency:</label>
+            <select id="from">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="KES">KES</option>
+            </select>
+            <label for="to">To Currency:</label>
+            <select id="to">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="KES">KES</option>
+            </select>
+            <button onclick="convertCurrency()">Convert</button>
+            <p id="result"></p>
+          </div>
         </ol>
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" min="0" />
-        <label for="from">From Currency:</label>
-        <select id="from">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="KES">KES</option>
-        </select>
-        <label for="to">To Currency:</label>
-        <select id="to">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="KES">KES</option>
-        </select>
-        <button onclick="convertCurrency()">Convert</button>
-        <p id="result"></p>
       </section>
-      <section id="ExchangeRates">
-        <h3>Exchange Rates</h3>
-        <div id="exchangeRatesContainer"></div>
-      </section>
+      <div class="exchange-rates-container">
+        <section id="ExchangeRates">
+          <h3>Exchange Rates</h3>
+          <p>These are the exchange rates of the dollar to various currencies all over the world,you can use these to get your salary in Kshs.</p>
+          <div id="exchangeRatesContainer"></div>
+          <button id="updateRatesBtn">Update Rates</button>
+        </section>
+      </div>
       <section id="AboutUs">
         <h3>About Us</h3>
         <p>
