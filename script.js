@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then((data) => {
                 const exchangeRatesContainer = document.getElementById("exchangeRatesContainer");
-                exchangeRatesContainer.innerHTML = ""; // Clear previous data
+                exchangeRatesContainer.innerHTML = ""; 
 
                 Object.keys(data.rates).forEach((currency) => {
                     const exchangeRateItem = document.createElement("span");
@@ -88,10 +88,20 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchExchangeRates();
     };
 
-    fetchExchangeRates();
-
     document.getElementById("updateRatesBtn").addEventListener("click", handleUpdateRates);
+
+    document.getElementById("hideRatesBtn").addEventListener("click", () => {
+        const exchangeRatesContainer = document.getElementById("exchangeRatesContainer");
+        exchangeRatesContainer.style.display = "none";
+    });
+
+    
+    document.getElementById("updateRatesBtn").addEventListener("click", () => {
+        const exchangeRatesContainer = document.getElementById("exchangeRatesContainer");
+        exchangeRatesContainer.style.display = "block"; 
+    });
 });
+
 
 function convertCurrency() {
     const rates = {
